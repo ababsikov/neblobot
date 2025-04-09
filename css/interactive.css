@@ -1,0 +1,88 @@
+/* Additional styles for navigation and interactivity */
+#main-nav a.active {
+    background-color: rgba(255, 255, 255, 0.2);
+    font-weight: bold;
+}
+
+.phase-card {
+    transition: all 0.3s ease;
+}
+
+.phase-header {
+    cursor: pointer;
+    position: relative;
+}
+
+.phase-header::after {
+    content: '\f078';
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    position: absolute;
+    right: 1rem;
+    transition: transform 0.3s ease;
+}
+
+.phase-card.collapsed .phase-content {
+    display: none;
+}
+
+.phase-card.collapsed .phase-header::after {
+    transform: rotate(-90deg);
+}
+
+.milestone {
+    transition: all 0.3s ease;
+}
+
+.milestone:hover {
+    background-color: rgba(52, 152, 219, 0.05);
+}
+
+/* Back to top button */
+#back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: var(--secondary-color);
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 1000;
+}
+
+#back-to-top.visible {
+    opacity: 1;
+}
+
+/* Mobile navigation toggle */
+#mobile-nav-toggle {
+    display: none;
+    background-color: var(--secondary-color);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    #mobile-nav-toggle {
+        display: block;
+        width: 100%;
+    }
+    
+    #main-nav ul {
+        display: none;
+        flex-direction: column;
+    }
+    
+    #main-nav ul.show {
+        display: flex;
+    }
+}
